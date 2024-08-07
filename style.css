@@ -1,80 +1,138 @@
 body {
     font-family: 'Cairo', sans-serif;
-    background: linear-gradient(to right, #83a4d4, #b6fbff);
-    margin: 0;
-    padding: 0;
+    background: linear-gradient(to right, #0066cc, #00ccff);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
+    direction: rtl;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .container {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.registration-form {
+    background-color: #fff;
+    padding: 4vw;
+    border-radius: 1.5vw;
+    box-shadow: 0 0 3vw rgba(0, 0, 0, 0.2);
+    width: 90vw;
     max-width: 600px;
-    width: 100%;
+    animation: fadeIn 1s ease-in-out;
 }
 
-.header {
+.registration-form .header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 3vw;
 }
 
-.logo {
-    width: 100px;
+.registration-form .header .logo {
+    width: 20vw;
     height: auto;
+    margin-bottom: 1vw;
 }
 
-h1 {
-    margin: 10px 0;
+.registration-form h1 {
+    margin: 0;
+    font-size: 4vw;
     color: #333;
 }
 
-h2 {
+.registration-form h2 {
     text-align: center;
+    margin-bottom: 2vw;
     color: #555;
-    margin-bottom: 20px;
+    font-size: 3vw;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.registration-form .form-group {
+    margin-bottom: 2vw;
+    display: flex;
+    flex-direction: column;
 }
 
-label {
+.registration-form label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0.5vw;
+    font-weight: 600;
     color: #333;
 }
 
-input, select, textarea {
+.registration-form input,
+.registration-form textarea,
+.registration-form select {
     width: 100%;
-    padding: 10px;
+    padding: 1.2vw;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 0.5vw;
     box-sizing: border-box;
-    margin-bottom: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    -webkit-transition: border-color 0.3s, box-shadow 0.3s; /* Safari */
+    -moz-transition: border-color 0.3s, box-shadow 0.3s; /* Firefox */
+    -o-transition: border-color 0.3s, box-shadow 0.3s; /* Opera */
 }
 
-input[type="checkbox"] {
-    width: auto;
-    margin-top: 10px;
+.registration-form input:focus,
+.registration-form textarea:focus,
+.registration-form select:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 0.5vw rgba(0, 102, 204, 0.5);
+    -webkit-box-shadow: 0 0 0.5vw rgba(0, 102, 204, 0.5); /* Safari */
+    -moz-box-shadow: 0 0 0.5vw rgba(0, 102, 204, 0.5); /* Firefox */
+    -o-box-shadow: 0 0 0.5vw rgba(0, 102, 204, 0.5); /* Opera */
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
+button[type="submit"] {
+    background-color: #0066cc;
     color: #fff;
-    font-size: 16px;
+    padding: 1.5vw;
+    border: none;
+    border-radius: 0.5vw;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 2vw;
+    transition: background-color 0.3s;
+    -webkit-transition: background-color 0.3s; /* Safari */
+    -moz-transition: background-color 0.3s; /* Firefox */
+    -o-transition: background-color 0.3s; /* Opera */
 }
 
-button:hover {
-    background-color: #0056b3;
+button[type="submit"]:hover {
+    background-color: #005bb5;
+}
+
+@media (max-width: 600px) {
+    .registration-form {
+        padding: 8vw;
+    }
+
+    .registration-form .header .logo {
+        width: 40vw;
+    }
+
+    .registration-form h1 {
+        font-size: 6vw;
+    }
+
+    .registration-form h2 {
+        font-size: 4vw;
+    }
+
+    .registration-form label {
+        font-size: 3vw;
+    }
+
+    .registration-form input,
+    .registration-form textarea,
+    .registration-form select,
+    button[type="submit"] {
+        font-size: 4vw;
+    }
 }
