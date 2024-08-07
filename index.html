@@ -1,49 +1,126 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>לב הגליל לתחבורה</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("k3sFmPycB9ilBaUgQ");
+        })();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ua = navigator.userAgent.toLowerCase();
+            var isAndroid = ua.indexOf("android") > -1;
+            var isChrome = ua.indexOf("chrome") > -1;
+
+            if (isAndroid && !isChrome) {
+                alert('للحصول على أفضل تجربة، يُفضل استخدام متصفح Chrome.');
+            }
+        });
+    </script>
 </head>
 <body>
-    <header>
-        <img src="logo_academy-removebg-preview.png" alt="לב הגליל לתחבורה" class="logo">
-        <h1>לב הגליל לתחבורה</h1>
-    </header>
-
-    <main>
-        <form id="registrationForm">
-            <label for="name">الاسم الكامل:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="course">اسم الدورة:</label>
-            <select id="course" name="course" required>
-                <option value="public-transport">كורס باص - קורס ציבורי</option>
-                <option value="heavy-transport">كورس شحن ثقيل - קורס משא כבד</option>
-                <option value="forklift">كورس رافعه شوكية - קורס מלגזה</option>
-                <option value="crane">كورس رافعه - קורס מנוף</option>
-                <option value="tractor">كورس تراكتور - קורס טרקטור</option>
-                <option value="small-bus">كورس باص صغير عمومي - קורס אזפ/ אז"צ</option>
-                <option value="driving-instructor">معلم سياقة - מורה לנהיגה</option>
-                <option value="mobile-machine">كورس מכונה ניידת - קורס מכונה ניידת</option>
-            </select>
-
-            <label for="agree">הצהרת הסכמה:</label>
-            <textarea id="agree" name="agree" readonly>
-אני התלמיד החותם מטה מסכים לשלם דמי מנוי לשמירת מקום בקורס:
-أنا الطالب الموقع أدناه أوافق على دفع رسوم اشتراك لحجز مقعد في الدورة:
-בחתימתי מטה, אני מסכים/ה בזאת למסור את פרטיי למכללת לב הגליל לתחבורה ולהירשם לקורס הנבחר. הוסבר לי בפירוט אודות הקורס שאליו נרשמתי ואני מאשר/ת בזאת את רישומי.
-عند توقيع هذا النموذج، أقر بأنني أرغب في الانضمام للدورة ولدي إمكانية إلغاء التسجيل حتى 14 يومًا. بعد هذه الفترة، لن يتم إعادة رسوم التسجيل وسأكون ملزمًا بالمقعد الذي سجلت فيه.
-            </textarea>
-
-            <label for="signature">التوقيع:</label>
-            <input type="text" id="signature" name="signature" required>
-
-            <button type="submit">إرسال</button>
-        </form>
-    </main>
-
+    <div class="container">
+        <div class="registration-form">
+            <div class="header">
+                <img src="logo_academy-removebg-preview.png" alt="لب הגلיל לתחבורה" class="logo">
+                <h1>לב הגליל לתחבורה</h1>
+            </div>
+            <h2>נרשם לקורס | تسجيل الدورة</h2>
+            <form id="registrationForm" data-netlify="true" netlify-honeypot="bot-field">
+                <div style="display:none">
+                    <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                </div>
+                <div class="form-group">
+                    <label for="student-id">رقم الطالب | מספר התלמיד:</label>
+                    <input type="text" id="student-id" name="student_id" required>
+                </div>
+                <div class="form-group">
+                    <label for="branch">الفرع | סניף:</label>
+                    <input type="text" id="branch" name="branch" required>
+                </div>
+                <div class="form-group">
+                    <label for="full-name">الاسم الكامل | שם מלא:</label>
+                    <input type="text" id="full-name" name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="id-number">رقم الهوية | מספר זהות:</label>
+                    <input type="text" id="id-number" name="id_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">تاريخ الميلاد | תאריך לידה:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="workplace">مكان العمل | מקום עבודה:</label>
+                    <input type="text" id="workplace" name="workplace" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">العنوان | כתובת:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني | דוא"ל:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile-phone">رقم الهاتف المحمول | טלפון נייד:</label>
+                    <input type="tel" id="mobile-phone" name="mobile_phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="landline-phone">رقم الهاتف الأرضي | טלפון קווי:</label>
+                    <input type="tel" id="landline-phone" name="landline_phone">
+                </div>
+                <div class="form-group">
+                    <label for="education">المستوى التعليمي | רמת השכלה:</label>
+                    <input type="text" id="education" name="education" required>
+                </div>
+                <div class="form-group">
+                    <label for="referrer">مصدر الإحالة | מקור הפניה:</label>
+                    <input type="text" id="referrer" name="referrer">
+                </div>
+                <div class="form-group">
+                    <label for="course-name">اسم الدورة (قائمة منسدلة) | שם הקורס (רשימה נפתחת):</label>
+                    <select id="course-name" name="course_name" required>
+                        <option value="كورس باص - קורס ציבורי">كورس باص - קורס ציבורי</option>
+                        <option value="كورس شحن ثقيل - קורס משא כבד">كورس شحن ثقيل - קורס משא כבד</option>
+                        <option value="كورس رافعه - קורס מנוף">كورس رافعه - קורס מנוף</option>
+                        <option value="كورس رافعه شوكية - קורס מלגזה">كورس رافعه شوكية - קורס מלגזה</option>
+                        <option value="كورس تراكتور - קורס טרקטור">كورس تراكتور - קורס טרקטור</option>
+                        <option value="كورس باص صغير عمومي - קורס אזפ/ אזצ">كورس باص صغير عمومي - קורס אזפ/ אזצ</option>
+                        <option value="معلم سياقة - מורה לנהיגה">معلم سياقة - מורה לנהיגה</option>
+                        <option value="كورس מכונה ניידת">كورس מכונה ניידת</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method">طريقة الدفع / التعليقات | אופן התשלום / הערות:</label>
+                    <textarea id="payment-method" name="payment_method" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="attachment">إرفاق صور ثبوتية | צרף מסמכים מזהים:</label>
+                    <input type="file" id="attachment" name="attachment[]" multiple>
+                </div>
+                <div class="form-group">
+                    <label for="agreement">الموافقة على الشروط | הסכמה לתנאים:</label>
+                    <textarea id="agreement" name="agreement" rows="8" readonly>
+بחתימתי מטה, אני מסכים/ה בזאת למסור את פרטיי למכללת לב הגליל לתחבורה ולהירשם לקורס הנבחר. הוסבר לי בפירוט אודות הקורס שאליו נרשמתי ואני מאשר/ת בזאת את רישומי.
+أنا الطالب الموقع أدناه، أوافق بموجب هذا على إرسال بياناتي إلى كلية قلب الجليل للمواصلات، والتسجيل في الدورة. لقد تم شرح لي بالتفصيل عن الدورة التي سجلت فيها وبذلك أؤكد تسجيل بياناتي.
+                    </textarea>
+                    <input type="checkbox" id="agree" name="agree" required> أوافق على الشروط | אני מסכים לתנאים
+                </div>
+                <div class="form-group">
+                    <label for="signature">التوقيع | חתימה:</label>
+                    <input type="text" id="signature" name="signature" required>
+                </div>
+                <button type="submit">إرسال | שלח</button>
+            </form>
+        </div>
+    </div>
     <script src="sendEmail.js"></script>
 </body>
 </html>
